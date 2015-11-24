@@ -22,7 +22,7 @@ In the xls excel file:		spoligotype query result downloaded from SITVIT WEB.
 python SpoTyping.py [options] FASTQ_1 FASTQ_2(optional)
 
 **An Example call:**  
-python2.7 SpoTyping.py read_1.fastq read_2.fastq –output spo.out
+python2.7 SpoTyping.py read_1.fastq read_2.fastq –o spo.out
 
 ##### Options:
   **--version**  

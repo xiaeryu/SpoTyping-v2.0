@@ -1,18 +1,19 @@
 SpoTyping
 =========
-SpoTyping is a software for predicting spoligotype from sequencing reads.
+SpoTyping is a software for predicting spoligotype from sequencing reads, complete genomic sequences and assembled contigs.
 
 
 #### Part I. Spoligotype prediction and SITVIT database query.
 ##### Prerequisites:
-* python
+* Python2.7
 * BLAST
 
 ##### Input:
-Fastq file or pair-end fastq files.
+1. Fastq file or pair-end fastq files.
+2. Fasta file of a complete genomic sequence or assembled contigs of an isolate
 
 ##### Output:
-In the output file specified:	predicted spoligotype in the format of octal code.  
+In the output file specified:	predicted spoligotype in the format of binary code and octal code.  
 In the output log file:		count of hits from BLAST result for each spacer sequence.   
 In the xls excel file:		spoligotype query result downloaded from SITVIT WEB.  
 			## Note: if the same spoligotype is queried before and have an xls file in the output directory, it will not be queried again.  
@@ -30,6 +31,9 @@ python2.7 SpoTyping.py read_1.fastq read_2.fastq –output spo.out
   **-h, --help**  
   show this help message and exit
   
+  **--seq**  
+  Set this if input is a fasta file that contains only complete genomic sequence or assembled contigs from an isolate. [Default is off]
+  
   **-s SWIFT, --swift=SWIFT**  
   swift mode, either "on" or "off" [Default: on]
   
@@ -45,6 +49,9 @@ python2.7 SpoTyping.py read_1.fastq read_2.fastq –output spo.out
   **-o OUTPUT, --output=OUTPUT**  
   basename of output files generated [Default: SpoTyping]
   
+  **--noQuery**  
+  suppress the SITVIT database query [Default is off]
+  
   **-d, --debug**  
   enable debug mode, keeping all intermediate files for checking [Default is off]
 
@@ -54,11 +61,9 @@ FASTQ_2        input FASTQ read 2 file (optional for pair-end reads)
 
 ##### Suggestions:
 1. It's highly suggested to use the swift mode (set as the default) if the sequencing throughput is no less than 100Mbp.
-2. For sequencing experiments with throughputs below 100Mbp, please use -m 2 -r 3 as the thresholds.
-3. If you do wish to take in all reads, it's suggested to estimated the coverage first. The --min is suggested to be set to 1/10 of the estimation to increase accuracy and to eliminate false positive. At the same time, --rmin should also be adjusted to be a bit larger than min.
-
-
-
+2. For sequencing experiments with throughputs below 135Mbp, please adjust the thresholds to be 0.0180 to 0.1486 times the estimated read depth for error-free hits and 0.0180 to 0.1488 times the estimated read depth for 1-error-tolerant hits. (The read depth is estimated by dividing the sequencing throughput by 4,500,000, which is the estimated _Mtb_ genome.)
+3. If you do wish to take in all reads for sequencing experiments with throughputs above 1260Mbp, please adjust the thresholds to be 0.0180 to 0.1486 times the estimated read depth for error-free hits and 0.0180 to 0.1488 times the estimated read depth for 1-error-tolerant hits.
+<br><br>
 
 #### Part II. Summary pie chart plot from the downloaded xls files.
 ##### Prerequisites:

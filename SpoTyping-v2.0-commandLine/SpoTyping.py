@@ -269,7 +269,7 @@ if __name__ == "__main__":
     ## Query the database
     ##########################################################
     if not noQuery and not os.path.isfile("%s/SITVIT_ONLINE.%s.xls" % (outdir,SpoType)):
-        query_handle = open("%s/SITVIT_ONLINE.%s.xls" % (outdir,SpoType), "w")
+        query_handle = open("%s/SITVIT_ONLINE.%s.xls" % (outdir,SpoType), "wb")
         a = querySITVIT()
         a.query(SpoType,query_handle)
         query_handle.close()

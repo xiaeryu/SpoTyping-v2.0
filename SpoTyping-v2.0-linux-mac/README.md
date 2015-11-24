@@ -9,7 +9,7 @@ SpoTyping is a software for predicting spoligotype from sequencing reads, comple
 * BLAST
 
 ##### Input:
-1. Fastq file or pair-end fastq files.
+1. Fastq file or pair-end fastq files
 2. Fasta file of a complete genomic sequence or assembled contigs of an isolate
 
 ##### Output:
@@ -54,14 +54,18 @@ python2.7 SpoTyping.py read_1.fastq read_2.fastq –output spo.out
   
   **-d, --debug**  
   enable debug mode, keeping all intermediate files for checking [Default is off]
+<br><br>
 
-
-FASTQ_1        input FASTQ read 1 file (mandatory)
-FASTQ_2        input FASTQ read 2 file (optional for pair-end reads)
+  **FASTQ_1/FASTA**  
+  input FASTQ read 1 file or sequence fasta file (mandatory)
+  
+  **FASTQ_2**  
+  input FASTQ read 2 file (optional for pair-end reads)
+<br><br>
 
 ##### Suggestions:
-1. It's highly suggested to use the swift mode (set as the default) if the sequencing throughput is no less than 100Mbp.
-2. For sequencing experiments with throughputs below 135Mbp, please adjust the thresholds to be 0.0180 to 0.1486 times the estimated read depth for error-free hits and 0.0180 to 0.1488 times the estimated read depth for 1-error-tolerant hits. (The read depth is estimated by dividing the sequencing throughput by 4,500,000, which is the estimated _Mtb_ genome.)
+1. It's highly suggested to use the swift mode (set as the default) if the sequencing throughput is no less than 135Mbp.
+2. For sequencing experiments with throughputs below 135Mbp, please adjust the thresholds to be 0.0180 to 0.1486 times the estimated read depth for error-free hits and 0.0180 to 0.1488 times the estimated read depth for 1-error-tolerant hits. (The read depth is estimated by dividing the sequencing throughput by 4,500,000, which is the estimated _Mtb_ genome length.)
 3. If you do wish to take in all reads for sequencing experiments with throughputs above 1260Mbp, please adjust the thresholds to be 0.0180 to 0.1486 times the estimated read depth for error-free hits and 0.0180 to 0.1488 times the estimated read depth for 1-error-tolerant hits.
 <br><br>
 

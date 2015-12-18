@@ -69,6 +69,16 @@ python2.7 SpoTyping.py read_1.fastq read_2.fastq –o spo.out
 3. If you do wish to take in all reads for sequencing experiments with throughputs above 1260Mbp, please adjust the thresholds to be 0.0180 to 0.1486 times the estimated read depth for error-free hits and 0.0180 to 0.1488 times the estimated read depth for 1-error-tolerant hits.
 <br><br>
 
+##### Got weird spoligotype prediction?
+1. **Sequencing throughput is very high** (>500Mbp, for example): try to disable the swift mode and set the hit thresholds higher (10% of the estimated read depth, for example).
+```shell
+# Example commad:
+python SpoTyping.py -s off -m 10 -r 12 read_1.fastq.gz read_2.fastq.gz
+```
+2. **Sequencing throughput is very low** (<40Mbp, for example): _SpoTyping_ may not be able to give accurate prediction due to the relatively low read depth.
+<br><br>
+
+
 #### Part II. Summary pie chart plot from the downloaded xls files.
 ##### Prerequisites:
 * R

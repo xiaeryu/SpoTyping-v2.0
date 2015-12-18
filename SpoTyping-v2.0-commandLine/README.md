@@ -70,12 +70,12 @@ python2.7 SpoTyping.py read_1.fastq read_2.fastq –o spo.out
 <br><br>
 
 ##### Got weird spoligotype prediction?
-1. **Sequencing throughput is very high** (>500Mbp, for example): try to disable the swift mode and set the hit thresholds higher (10% of the estimated read depth, for example).
+* **Sequencing throughput is very high** (>500Mbp, for example): try to disable the swift mode and set the hit thresholds higher (10% of the estimated read depth, for example).
 ```shell
 # Example commad:
 python SpoTyping.py -s off -m 10 -r 12 read_1.fastq.gz read_2.fastq.gz
 ```
-2. **Sequencing throughput is very low** (<40Mbp, for example): _SpoTyping_ may not be able to give accurate prediction due to the relatively low read depth.
+* **Sequencing throughput is very low** (<40Mbp, for example): _SpoTyping_ may not be able to give accurate prediction due to the relatively low read depth.
 <br><br>
 
 

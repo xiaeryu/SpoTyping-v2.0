@@ -210,7 +210,7 @@ if __name__ == "__main__":
     ## Check name of existing tmp files
     tmpnum = 0
     while os.path.isfile("%s.SpoTyping.tmp.%d" % (output,tmpnum)):
-        num+=1
+        tmpnum+=1
     tmpfile = "%s/%s.SpoTyping.tmp.%d" % (outdir,output,tmpnum)
 
     ##########################################################

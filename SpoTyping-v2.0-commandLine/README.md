@@ -75,7 +75,7 @@ python2.7 SpoTyping.py read_1.fastq read_2.fastq –o spo.out
 # Example commad:
 python SpoTyping.py -s off -m 10 -r 12 read_1.fastq.gz read_2.fastq.gz
 ```
-* **Sequencing throughput is very low** (<40Mbp, for example): _SpoTyping_ may not be able to give accurate prediction due to the relatively low read depth.
+* **Sequencing throughput is very low** (<40Mbp, for example): SpoTyping may not be able to give accurate prediction due to the relatively low read depth.
 <br><br>
 
 
